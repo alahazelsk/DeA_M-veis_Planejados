@@ -23,7 +23,6 @@ export default function ContatoPage() {
     phone: '',
     projectType: '',
     message: '',
-    budget: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -34,35 +33,13 @@ export default function ContatoPage() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    try {
-      const response = await fetch('https://formspree.io/f/mwpobjoq', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert('Obrigado pelo seu contato! Sua mensagem foi enviada com sucesso.');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          projectType: '',
-          budget: '',
-          message: ''
-        });
-      } else {
-        alert('Erro ao enviar o formulário. Tente novamente mais tarde.');
-      }
-    } catch (error) {
-      alert('Erro de conexão. Verifique sua internet e tente novamente.');
-    }
-  };
+    // TODO: Implement actual form submission logic (e.g., send email, API call)
+    console.log('Form Data Submitted:', formData);
+    alert('Obrigado pelo seu contato! Sua solicitação foi enviada (simulação).');
+    // Reset form potentially
+    setFormData({ name: '', email: '', phone: '', projectType: '', budget: '', message: '' });
   };
 
   return (
@@ -100,14 +77,7 @@ export default function ContatoPage() {
               <Textarea id="message" name="message" placeholder="Descreva suas ideias, necessidades, dimensões aproximadas..." required value={formData.message} onChange={handleChange} className="bg-input" rows={5} />
             </div>
             <Button type="submit" className="w-full bg-destructive hover:bg-destructive/90 text-destructive-foreground">Enviar Solicitação</Button>
-          
-<div className="grid w-full items-center gap-1.5">
-  <Label htmlFor="budget">Quanto pretende investir em marcenaria?</Label>
-  <Input type="text" id="budget" name="budget" value={formData.budget} onChange={handleChange} />
-</div>
-
-
-</form>
+          </form>
         </div>
 
         {/* Other Contact Info */}
