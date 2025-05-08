@@ -17,12 +17,7 @@ import { useState } from 'react'; // For basic form state
 
 export default function ContatoPage() {
   // Basic form state handling (can be expanded later)
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    projectType: '',
-    message: '',
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', projectType: '', message: '', budget: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
