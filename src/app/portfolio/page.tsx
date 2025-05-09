@@ -29,7 +29,8 @@ const projects: Project[] = [
       "/banheiros/banheiros-02.jpg",
       "/banheiros/banheiros-03.jpg",
       "/banheiros/banheiros-04.jpg",
-      "/banheiros/banheiros-05.jpg"
+      "/banheiros/banheiros-05.jpg",
+      "/banheiros/banheiros-06.jpg"
     ],
     "category": "banheiros"
   },
