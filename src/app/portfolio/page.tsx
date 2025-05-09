@@ -1,13 +1,12 @@
 
 import Image from "next/image";
 
-interface Project {
+type Project = {
   id: number;
   title: string;
   description: string;
-  imagePlaceholders: string[];
-  category: string;
-}
+  images: string[];
+};
 
 const projects: Project[] = [
   {
@@ -15,66 +14,54 @@ const projects: Project[] = [
     title: "Área de Lazer",
     description:
       "Confira alguns projetos realizados neste ambiente, combinando funcionalidade, estética e personalização.",
-    imagePlaceholders: ["/area_lazer/area-lazer-01.jpg"],
-    category: "Area_Lazer",
+    images: ["/area_lazer/area-lazer-01.jpg"],
   },
   {
     id: 2,
     title: "Banheiros",
     description:
       "Confira alguns projetos realizados neste ambiente, combinando funcionalidade, estética e personalização.",
-    imagePlaceholders: [
+    images: [
       "/banheiros/banheiros-01.jpg",
       "/banheiros/banheiros-02.jpg",
     ],
-    category: "Banheiros",
   },
   {
     id: 3,
     title: "Cantinho do Café",
     description:
       "Confira alguns projetos realizados neste ambiente, combinando funcionalidade, estética e personalização.",
-    imagePlaceholders: ["/cantinho_cafe/cantinho-cafe-01.jpg"],
-    category: "Cantinho_Cafe",
+    images: ["/cantinho_cafe/cantinho-cafe-01.jpg"],
   },
 ];
 
-export default function PortfolioPage() {
+export default function Portfolio() {
   return (
-    <div className="container mx-auto px-4 py-12 space-y-12">
-      <h1 className="text-center text-4xl font-bold">
-        Portfólio: A Excelência D&A em Cada Projeto Realizado
+    <section className="container mx-auto px-4 py-12 space-y-10">
+      <h1 className="text-4xl font-bold text-center">
+        Portfólio
       </h1>
 
-      <p className="text-center max-w-2xl mx-auto text-muted-foreground">
-        Navegue por nossa galeria de projetos e descubra a materialização do
-        alto padrão em móveis planejados. Cada ambiente criado é testemunho da
-        nossa dedicação à qualidade.
-      </p>
-
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <div key={project.id} className="space-y-4">
-            {project.imagePlaceholders.map((img, index) => (
+        {projects.map((p) => (
+          <div key={p.id} className="space-y-3">
+            {p.images.map((src, i) => (
               <Image
-                key={index}
-                src={img}
-                alt={\`\${project.title} \${index + 1}\`}
+                key={i}
+                src={src}
+                alt={`${p.title} ${i + 1}`}
                 width={600}
                 height={400}
-                className="w-full h-auto rounded-lg object-cover"
+                className="rounded-lg object-cover w-full h-auto"
               />
             ))}
-
-            <div className="space-y-1">
-              <h3 className="text-lg font-semibold">{project.title}</h3>
-              <p className="text-sm text-muted-foreground">
-                {project.description}
-              </p>
-            </div>
+            <h3 className="text-lg font-semibold">{p.title}</h3>
+            <p className="text-sm text-muted-foreground">
+              {p.description}
+            </p>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
