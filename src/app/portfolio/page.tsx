@@ -18,15 +18,27 @@ interface Project {
 
 // Sample Project Data (Replace with actual data and image paths later)
 const projects: Project[] = [
-  {
-    id: 1,
-    title: "Area_Lazer",
-    description: "Confira alguns projetos realizados neste ambiente, combinando funcionalidade, estética e personalização.",
-    imagePlaceholders: [
-      "/area_lazer/area-lazer-01.jpg",
-    ],
-    category: "Area_Lazer"
-  },
+  {/* dentro do componente de Portfólio */}
+{projects.map((project) => (
+  <div key={project.id} className="space-y-2">
+    <h3 className="text-lg font-bold">{project.title}</h3>
+
+    {/* renderiza todas as imagens desse projeto */}
+    {project.imagePlaceholders.map((img, index) => (
+      <img
+        key={index}
+        src={img}
+        alt={`${project.title} ${index + 1}`}
+        className="w-full h-auto rounded-lg object-cover"
+      />
+    ))}
+
+    <p className="text-sm text-muted-foreground">
+      {project.description}
+    </p>
+  </div>
+))}
+
   {
     id: 2,
     title: "Banheiros",
