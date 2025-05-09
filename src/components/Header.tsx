@@ -8,8 +8,6 @@ const Header = () => {
         <Link href="/" className="mr-6 flex items-center space-x-2">
           {/* Placeholder for Logo - User needs to provide the high-res logo */}
           <span className="font-bold sm:inline-block text-lg text-primary">D&A Móveis Planejados</span>
-            "images": [
-      "/logo/logo_trasparente01.png"
         </Link>
         <nav className="flex items-center gap-4 text-sm lg:gap-6">
           <Link href="/" className="transition-colors hover:text-foreground/80 text-foreground/60">Home</Link>
