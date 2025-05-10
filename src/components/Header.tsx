@@ -10,8 +10,8 @@ const Header = () => {
           <Image
             src="/logo/logo_trasparente01.png"
             alt="D&A Móveis Planejados"
-            width={70}
-            height={70}
+            width={150}
+            height={150}
             className="h-9 w-9 object-contain"
             priority
           />
