@@ -8,10 +8,10 @@ const Header = () => {
       <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Image
-            src="/logo/logo_trasparente01.png"
+            src="/logo/logo_com_contorno_branco.png"
             alt="D&A Móveis Planejados"
-            width={150}
-            height={150}
+            width={250}
+            height={250}
             className="h-9 w-9 object-contain"
             priority
           />
