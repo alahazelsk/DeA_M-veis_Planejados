@@ -8,7 +8,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Instagram, Phone, MapPin } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react'; // For basic form state
 
 // export const metadata: Metadata = { // Metadata needs to be defined in server components or layout
 //   title: 'Contato e Orçamento | D&A Móveis Planejados',
@@ -16,29 +15,11 @@ import { useState } from 'react'; // For basic form state
 // };
 
 export default function ContatoPage() {
-  // Basic form state handling (can be expanded later)
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', projectType: '', message: '', budget: '',
-  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Implement actual form submission logic (e.g., send email, API call)
-    console.log('Form Data Submitted:', formData);
-    alert('Obrigado pelo seu contato! Sua solicitação foi enviada (simulação).');
-    // Reset form potentially
-    setFormData({ name: '', email: '', phone: '', projectType: '', budget: '', message: '' });
-  };
+  // No need for state management here if using standard Formspree submission
 
   return (
-    <div className="space-y-12">
+    <div className="container mx-auto px-4 py-12 space-y-12">
       <section className="text-center">
         <h1 className="text-4xl font-bold mb-4 text-primary">Fale Conosco e Solicite Seu Orçamento Personalizado</h1>
         <p className="text-lg text-muted-foreground max-w-prose mx-auto">
@@ -47,29 +28,33 @@ export default function ContatoPage() {
       </section>
 
       <section className="grid md:grid-cols-2 gap-12">
-        {/* Contact Form */}
+        {/* Contact Form - Now points to Formspree */}
         <div>
           <h2 className="text-3xl font-semibold mb-6">Solicite seu Orçamento</h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Formspree handles submission. Replace YOUR_FORM_ID with the actual ID */}
+          <form action="https://formspree.io/f/mwpobjoq" method="POST" className="space-y-4">
             <div>
               <Label htmlFor="name">Nome Completo</Label>
-              <Input id="name" name="name" type="text" placeholder="Seu nome completo" required value={formData.name} onChange={handleChange} className="bg-input" />
+              {/* Use 'name' attribute for Formspree */}
+              <Input id="name" name="name" type="text" placeholder="Seu nome completo" required className="bg-input" />
             </div>
             <div>
               <Label htmlFor="email">Email</Label>
-              <Input id="email" name="email" type="email" placeholder="seuemail@exemplo.com" required value={formData.email} onChange={handleChange} className="bg-input" />
+              <Input id="email" name="email" type="email" placeholder="seuemail@exemplo.com" required className="bg-input" />
             </div>
             <div>
               <Label htmlFor="phone">Telefone/WhatsApp</Label>
-              <Input id="phone" name="phone" type="tel" placeholder="(XX) XXXXX-XXXX" required value={formData.phone} onChange={handleChange} className="bg-input" />
+              <Input id="phone" name="phone" type="tel" placeholder="(XX) XXXXX-XXXX" required className="bg-input" />
             </div>
             <div>
               <Label htmlFor="projectType">Tipo de Projeto/Ambiente</Label>
-              <Input id="projectType" name="projectType" type="text" placeholder="Ex: Cozinha, Dormitório, Sala..." value={formData.projectType} onChange={handleChange} className="bg-input" />
+              <Input id="projectType" name="projectType" type="text" placeholder="Ex: Cozinha, Dormitório, Sala..." className="bg-input" />
             </div>
+            {/* Optional: Add a hidden field for subject if needed by Formspree setup */}
+            {/* <input type="hidden" name="_subject" value="Novo Contato - Site D&A Móveis" /> */}
             <div>
               <Label htmlFor="message">Mensagem</Label>
-              <Textarea id="message" name="message" placeholder="Descreva suas ideias, necessidades, dimensões aproximadas..." required value={formData.message} onChange={handleChange} className="bg-input" rows={5} />
+              <Textarea id="message" name="message" placeholder="Descreva suas ideias, necessidades, dimensões aproximadas..." required className="bg-input" rows={5} />
             </div>
             <Button type="submit" className="w-full bg-destructive hover:bg-destructive/90 text-destructive-foreground">Enviar Solicitação</Button>
           </form>
@@ -103,9 +88,10 @@ export default function ContatoPage() {
                 <MapPin className="h-4 w-4 mr-2 mt-1 flex-shrink-0" />
                 <span>Rua Tuffi Rassi, 140<br />Jardim do Trevo, Ribeirão Preto - SP</span>
               </p>
-              <p className="text-sm text-muted-foreground mt-2">[Consultar CEP e adicionar aqui]</p>
-              <p className="text-sm text-muted-foreground mt-1">Horário: [Definir - Ex: Seg-Sex 8h-18h, Sáb 8h-12h (com hora marcada)]</p>
-              {/* Placeholder for Map */}
+              {/* TODO: Add CEP and Opening Hours */}
+              <p className="text-sm text-muted-foreground mt-2">CEP: [Consultar e adicionar]</p>
+              <p className="text-sm text-muted-foreground mt-1">Horário: [Definir - Ex: Seg-Sex 8h-18h, Sáb 8h-12h]</p>
+              {/* Placeholder for Map - Consider embedding Google Maps */}
               <div className="mt-4 h-48 bg-muted rounded flex items-center justify-center text-muted-foreground">
                 [Mapa Google Maps Incorporado]
               </div>
@@ -116,4 +102,3 @@ export default function ContatoPage() {
     </div>
   );
 }
-
