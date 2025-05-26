@@ -1,4 +1,6 @@
 import { Metadata } from 'next';
+import Image from 'next/image'; // Import Image component
+import Link from 'next/link'; // Import Link component
 
 export const metadata: Metadata = {
   title: 'Sobre Nós | D&A Móveis Planejados',
@@ -7,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function SobrePage() {
   return (
-    <div className="space-y-12">
+    <div className="container mx-auto px-4 py-12 space-y-12">
       <section className="text-center">
         <h1 className="text-4xl font-bold mb-4 text-primary">D&A Móveis Planejados: A Arte de Transformar Sonhos em Ambientes Exclusivos</h1>
         <p className="text-lg text-muted-foreground max-w-prose mx-auto">
@@ -25,9 +27,15 @@ export default function SobrePage() {
             Entendemos que um móvel planejado é mais do que um item de decoração; é um investimento na qualidade de vida, no conforto e na expressão do seu estilo. Por isso, cada projeto que sai da D&A é tratado com a máxima atenção aos detalhes, desde a concepção inicial em conjunto com o cliente até a instalação final.
           </p>
         </div>
-        {/* Placeholder for an image about the company/workshop */}
-        <div className="h-64 bg-secondary rounded-lg flex items-center justify-center text-secondary-foreground">
-          [Imagem da Marcenaria/Equipe]
+        {/* Replaced placeholder with an image */}
+        <div className="relative h-64 w-full rounded-lg overflow-hidden">
+          <Image 
+            src="/corporativo/corporativo-15.jpg" 
+            alt="Ambiente corporativo planejado D&A Móveis" 
+            layout="fill" 
+            objectFit="cover" 
+            className="rounded-lg"
+          />
         </div>
       </section>
 
@@ -54,18 +62,21 @@ export default function SobrePage() {
             <h3 className="font-semibold text-lg mb-2 text-primary">Compromisso com Prazos</h3>
             <p className="text-sm text-muted-foreground">Respeitamos os prazos acordados, entendendo a importância de cada etapa na realização do seu sonho.</p>
           </div>
+           {/* Added one more differential for better grid layout (optional) */}
+           <div className="bg-card p-6 rounded-lg border border-border">
+            <h3 className="font-semibold text-lg mb-2 text-primary">Soluções Inteligentes</h3>
+            <p className="text-sm text-muted-foreground">Otimizamos espaços e criamos soluções funcionais para o seu dia a dia.</p>
+          </div>
         </div>
       </section>
 
       <section className="text-center bg-secondary text-secondary-foreground p-8 rounded-lg">
          <h2 className="text-2xl font-semibold mb-4">Pronto para Começar?</h2>
          <p className="mb-6 max-w-prose mx-auto">Convidamos você a conhecer mais sobre nosso trabalho navegando pelo nosso portfólio ou seguindo nosso Instagram @deamoveisplanejados. Se você busca móveis planejados que realmente façam a diferença, com design autêntico e qualidade superior, a D&A Móveis Planejados é a sua escolha ideal em Ribeirão Preto.</p>
-         {/* Add Link component if needed */}
-         <a href="/contato" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-destructive text-destructive-foreground hover:bg-destructive/90 h-10 px-4 py-2">
+         <Link href="/contato" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-destructive text-destructive-foreground hover:bg-destructive/90 h-10 px-4 py-2">
            Entre em Contato e Solicite um Orçamento
-         </a>
+         </Link>
       </section>
     </div>
   );
 }
-
