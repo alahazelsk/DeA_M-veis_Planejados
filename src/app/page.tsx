@@ -7,8 +7,15 @@ export default function Home() {
     <div className="space-y-16">
       {/* Section 1: Hero Banner */}
       <section className="relative h-[60vh] flex items-center justify-center text-center bg-secondary text-secondary-foreground rounded-lg overflow-hidden">
-        {/* Background Image */}
-        <Image src="/salas/salas-05.jpg" layout="fill" objectFit="cover" alt="Sala de estar planejada D&A Móveis" className="z-0" priority />
+        {/* Background Image - Updated Image props */}
+        <Image 
+          src="/salas/salas-05.jpg" 
+          fill 
+          style={{ objectFit: 'cover' }} 
+          alt="Sala de estar planejada D&A Móveis" 
+          className="z-0" 
+          priority 
+        />
         <div className="absolute inset-0 bg-black opacity-50 z-10"></div> {/* Overlay for text readability */}
         <div className="relative z-20 p-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">D&A Móveis Planejados: Seu Espaço, Sua Assinatura de Exclusividade.</h1>
@@ -36,7 +43,14 @@ export default function Home() {
           {/* Project 1 */}
           <div className="border border-border rounded-lg overflow-hidden bg-card flex flex-col">
             <div className="relative h-48 w-full">
-              <Image src="/cozinhas/cozinhas-10.jpg" layout="fill" objectFit="cover" alt="Cozinha planejada moderna" className="rounded-t-lg" />
+              {/* Updated Image props */}
+              <Image 
+                src="/cozinhas/cozinhas-10.jpg" 
+                fill 
+                style={{ objectFit: 'cover' }} 
+                alt="Cozinha planejada moderna" 
+                className="rounded-t-lg" 
+              />
             </div>
             <div className="p-4 flex flex-col flex-grow">
               <h3 className="font-semibold mb-2 flex-grow">Cozinha Gourmet Moderna</h3>
@@ -48,7 +62,14 @@ export default function Home() {
           {/* Project 2 */}
           <div className="border border-border rounded-lg overflow-hidden bg-card flex flex-col">
             <div className="relative h-48 w-full">
-              <Image src="/dormitorios/dormitorios-08.jpg" layout="fill" objectFit="cover" alt="Dormitório planejado elegante" className="rounded-t-lg" />
+              {/* Updated Image props */}
+              <Image 
+                src="/dormitorios/dormitorios-08.jpg" 
+                fill 
+                style={{ objectFit: 'cover' }} 
+                alt="Dormitório planejado elegante" 
+                className="rounded-t-lg" 
+              />
             </div>
             <div className="p-4 flex flex-col flex-grow">
               <h3 className="font-semibold mb-2 flex-grow">Dormitório Elegante e Funcional</h3>
@@ -60,7 +81,14 @@ export default function Home() {
           {/* Project 3 */}
           <div className="border border-border rounded-lg overflow-hidden bg-card flex flex-col">
             <div className="relative h-48 w-full">
-              <Image src="/salas/salas-20.jpg" layout="fill" objectFit="cover" alt="Sala de estar planejada sofisticada" className="rounded-t-lg" />
+              {/* Updated Image props */}
+              <Image 
+                src="/salas/salas-20.jpg" 
+                fill 
+                style={{ objectFit: 'cover' }} 
+                alt="Sala de estar planejada sofisticada" 
+                className="rounded-t-lg" 
+              />
             </div>
             <div className="p-4 flex flex-col flex-grow">
               <h3 className="font-semibold mb-2 flex-grow">Sala de Estar Sofisticada</h3>
