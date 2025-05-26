@@ -31,7 +31,7 @@ export default function ContatoPage() {
         {/* Contact Form - Now points to Formspree */}
         <div>
           <h2 className="text-3xl font-semibold mb-6">Solicite seu Orçamento</h2>
-          {/* Formspree handles submission. Replace YOUR_FORM_ID with the actual ID */}
+          {/* Formspree handles submission. */}
           <form action="https://formspree.io/f/mwpobjoq" method="POST" className="space-y-4">
             <div>
               <Label htmlFor="name">Nome Completo</Label>
@@ -49,6 +49,11 @@ export default function ContatoPage() {
             <div>
               <Label htmlFor="projectType">Tipo de Projeto/Ambiente</Label>
               <Input id="projectType" name="projectType" type="text" placeholder="Ex: Cozinha, Dormitório, Sala..." className="bg-input" />
+            </div>
+            {/* Added Investment Field */}
+            <div>
+              <Label htmlFor="investimento">Quanto pretende investir? (Opcional)</Label>
+              <Input id="investimento" name="investimento" type="text" placeholder="Ex: R$ 10.000 - R$ 20.000" className="bg-input" />
             </div>
             {/* Optional: Add a hidden field for subject if needed by Formspree setup */}
             {/* <input type="hidden" name="_subject" value="Novo Contato - Site D&A Móveis" /> */}
@@ -88,12 +93,19 @@ export default function ContatoPage() {
                 <MapPin className="h-4 w-4 mr-2 mt-1 flex-shrink-0" />
                 <span>Rua Tuffi Rassi, 140<br />Jardim do Trevo, Ribeirão Preto - SP</span>
               </p>
-              {/* TODO: Add CEP and Opening Hours */}
-              <p className="text-sm text-muted-foreground mt-2">CEP: [Consultar e adicionar]</p>
-              <p className="text-sm text-muted-foreground mt-1">Horário: [Definir - Ex: Seg-Sex 8h-18h, Sáb 8h-12h]</p>
-              {/* Placeholder for Map - Consider embedding Google Maps */}
-              <div className="mt-4 h-48 bg-muted rounded flex items-center justify-center text-muted-foreground">
-                [Mapa Google Maps Incorporado]
+              <p className="text-sm text-muted-foreground mt-2">CEP: 14092-310</p> 
+              <p className="text-sm text-muted-foreground mt-1">Horário: Seg-Sex 8h-18h, Sáb 8h-12h (Agende sua visita!)</p> 
+              {/* Google Maps Embed */}
+              <div className="mt-4 rounded overflow-hidden border border-border">
+                 <iframe 
+                   src="https://maps.google.com/maps?q=D%26A%20M%C3%B3veis%20Planejados%20Rua%20Tuffi%20Rassi%2C%20140%20Ribeir%C3%A3o%20Preto&t=&z=17&ie=UTF8&iwloc=&output=embed" 
+                   width="100%" 
+                   height="300" 
+                   style={{ border: 0 }} 
+                   allowFullScreen={true} 
+                   loading="lazy" 
+                   referrerPolicy="no-referrer-when-downgrade">
+                 </iframe>
               </div>
             </div>
           </div>
