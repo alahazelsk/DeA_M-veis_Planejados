@@ -1,22 +1,20 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image'; // Import Image component
+// import Image from 'next/image'; // Temporarily commented out for testing
 
 export default function Home() {
   return (
     <div className="space-y-16">
       {/* Section 1: Hero Banner */}
       <section className="relative h-[60vh] flex items-center justify-center text-center bg-secondary text-secondary-foreground rounded-lg overflow-hidden">
-        {/* Background Image - Updated Image props */}
-        <Image 
+        {/* Background Image - Replaced with <img> */}
+        <img 
           src="/salas/salas-05.jpg" 
-          fill 
-          style={{ objectFit: 'cover' }} 
           alt="Sala de estar planejada D&A Móveis" 
-          className="z-0" 
-          priority 
+          className="absolute inset-0 w-full h-full object-cover z-0" 
+          // priority // Not applicable to <img>
         />
-        <div className="absolute inset-0 bg-black opacity-50 z-10"></div> {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-black opacity-50 z-10"></div> {/* Overlay */}
         <div className="relative z-20 p-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">D&A Móveis Planejados: Seu Espaço, Sua Assinatura de Exclusividade.</h1>
           <p className="text-lg md:text-xl mb-6 max-w-3xl mx-auto">
@@ -43,57 +41,51 @@ export default function Home() {
           {/* Project 1 */}
           <div className="border border-border rounded-lg overflow-hidden bg-card flex flex-col">
             <div className="relative h-48 w-full">
-              {/* Updated Image props */}
-              <Image 
+              {/* Replaced with <img> */}
+              <img 
                 src="/cozinhas/cozinhas-10.jpg" 
-                fill 
-                style={{ objectFit: 'cover' }} 
                 alt="Cozinha planejada moderna" 
-                className="rounded-t-lg" 
+                className="absolute inset-0 w-full h-full object-cover rounded-t-lg" 
               />
             </div>
             <div className="p-4 flex flex-col flex-grow">
               <h3 className="font-semibold mb-2 flex-grow">Cozinha Gourmet Moderna</h3>
               <Button variant="outline" size="sm" asChild className="mt-auto">
-                <Link href="/portfolio?category=cozinhas">Ver Detalhes</Link> {/* Link to specific category */}
+                <Link href="/portfolio?category=cozinhas">Ver Detalhes</Link>
               </Button>
             </div>
           </div>
           {/* Project 2 */}
           <div className="border border-border rounded-lg overflow-hidden bg-card flex flex-col">
             <div className="relative h-48 w-full">
-              {/* Updated Image props */}
-              <Image 
+              {/* Replaced with <img> */}
+              <img 
                 src="/dormitorios/dormitorios-08.jpg" 
-                fill 
-                style={{ objectFit: 'cover' }} 
                 alt="Dormitório planejado elegante" 
-                className="rounded-t-lg" 
+                className="absolute inset-0 w-full h-full object-cover rounded-t-lg" 
               />
             </div>
             <div className="p-4 flex flex-col flex-grow">
               <h3 className="font-semibold mb-2 flex-grow">Dormitório Elegante e Funcional</h3>
               <Button variant="outline" size="sm" asChild className="mt-auto">
-                <Link href="/portfolio?category=dormitorios">Ver Detalhes</Link> {/* Link to specific category */}
+                <Link href="/portfolio?category=dormitorios">Ver Detalhes</Link>
               </Button>
             </div>
           </div>
           {/* Project 3 */}
           <div className="border border-border rounded-lg overflow-hidden bg-card flex flex-col">
             <div className="relative h-48 w-full">
-              {/* Updated Image props */}
-              <Image 
+              {/* Replaced with <img> */}
+              <img 
                 src="/salas/salas-20.jpg" 
-                fill 
-                style={{ objectFit: 'cover' }} 
                 alt="Sala de estar planejada sofisticada" 
-                className="rounded-t-lg" 
+                className="absolute inset-0 w-full h-full object-cover rounded-t-lg" 
               />
             </div>
             <div className="p-4 flex flex-col flex-grow">
               <h3 className="font-semibold mb-2 flex-grow">Sala de Estar Sofisticada</h3>
               <Button variant="outline" size="sm" asChild className="mt-auto">
-                <Link href="/portfolio?category=salas">Ver Detalhes</Link> {/* Link to specific category */}
+                <Link href="/portfolio?category=salas">Ver Detalhes</Link>
               </Button>
             </div>
           </div>
@@ -148,8 +140,6 @@ export default function Home() {
           </Button>
         </div>
       </section>
-
-      {/* Optional Section: Testimonials - Add later if content is provided */}
 
     </div>
   );
