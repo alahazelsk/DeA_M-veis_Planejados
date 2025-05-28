@@ -13,27 +13,26 @@ interface ServiceItemProps {
   title: string;
   description: string;
   items: string[];
-  imageSrc: string; 
-  imageAlt: string; 
-  imagePosition?: 'left' | 'right'; 
+  imageSrc: string;
+  imageAlt: string;
+  imagePosition?: 'left' | 'right';
 }
 
-// Updated ServiceItem to use <img> tag
+// Updated ServiceItem to use <img> tag and responsive text
 const ServiceItem: React.FC<ServiceItemProps> = ({ title, description, items, imageSrc, imageAlt, imagePosition = 'left' }) => (
-  <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center mb-12"> {/* Responsive gap */}
     {/* Image - Now uses <img> tag */}
     <div className={`relative h-64 w-full rounded-lg overflow-hidden ${imagePosition === 'left' ? 'md:order-1' : 'md:order-2'}`}>
-      <img 
+      <img
         src={imageSrc}
         alt={imageAlt}
-        // Use Tailwind classes or inline styles for object-fit and positioning
         className="absolute inset-0 w-full h-full object-cover rounded-lg"
         loading="lazy" // Add lazy loading for standard img
       />
     </div>
-    <div className={`${imagePosition === 'left' ? 'md:order-2' : 'md:order-1'}`}>
-      <h3 className="text-2xl font-semibold mb-3 text-primary">{title}</h3>
-      <p className="text-muted-foreground mb-4">{description}</p>
+    <div className={`${imagePosition === 'left' ? 'md:order-2' : 'md:order-1'} px-2 md:px-0`}> {/* Added horizontal padding for mobile text */}
+      <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-primary">{title}</h3> {/* Responsive text */}
+      <p className="text-muted-foreground mb-4 text-sm sm:text-base">{description}</p> {/* Responsive text */}
       <ul className="list-disc list-inside text-muted-foreground space-y-1 text-sm">
         {items.map((item, index) => (
           <li key={index}>{item}</li>
@@ -49,7 +48,7 @@ export default function ServicosPage() {
       title: "Cozinhas Planejadas",
       description: "O coração da casa merece atenção especial. Projetamos cozinhas que são verdadeiros espaços gourmet, unindo beleza e praticidade. Desde layouts otimizados até a escolha de materiais resistentes e elegantes, criamos cozinhas funcionais e inspiradoras.",
       items: ["Armários sob medida", "Ilhas e bancadas funcionais", "Soluções inteligentes de armazenamento", "Acabamentos diferenciados"],
-      imageSrc: "/cozinhas/cozinhas-15.jpg", 
+      imageSrc: "/cozinhas/cozinhas-15.jpg",
       imageAlt: "Cozinha planejada D&A Móveis",
       imagePosition: 'left'
     },
@@ -57,15 +56,15 @@ export default function ServicosPage() {
       title: "Dormitórios e Closets",
       description: "Seu refúgio pessoal projetado para o máximo conforto e organização. Criamos dormitórios e closets que refletem seu estilo e otimizam o espaço disponível, desde guarda-roupas personalizados até painéis de cabeceira.",
       items: ["Guarda-roupas e armários personalizados", "Closets abertos ou fechados", "Cabeceiras e painéis", "Mobiliário complementar (criados-mudos, cômodas)"],
-      imageSrc: "/dormitorios/dormitorios-12.jpg", 
+      imageSrc: "/dormitorios/dormitorios-12.jpg",
       imageAlt: "Dormitório planejado D&A Móveis",
-      imagePosition: 'right' 
+      imagePosition: 'right'
     },
     {
       title: "Salas de Estar e Jantar",
       description: "Ambientes de convivência que impressionam pelo design e conforto. Desenvolvemos painéis para TV, estantes, racks, aparadores e móveis de apoio que se integram perfeitamente à decoração.",
       items: ["Painéis de TV e Home Theaters", "Estantes e nichos decorativos", "Aparadores e buffets", "Mesas de centro e laterais"],
-      imageSrc: "/salas/salas-30.jpg", 
+      imageSrc: "/salas/salas-30.jpg",
       imageAlt: "Sala de estar planejada D&A Móveis",
       imagePosition: 'left'
     },
@@ -73,15 +72,15 @@ export default function ServicosPage() {
       title: "Home Offices",
       description: "Produtividade e estilo em um ambiente de trabalho inspirador. Projetamos home offices ergonômicos e funcionais, com bancadas, armários e estantes que ajudam a manter a organização e o foco.",
       items: ["Bancadas de trabalho sob medida", "Armários e gaveteiros organizadores", "Estantes para livros e objetos", "Soluções para gerenciamento de cabos"],
-      imageSrc: "/escritorios/escritorios-02.jpg", 
+      imageSrc: "/escritorios/escritorios-02.jpg",
       imageAlt: "Home office planejado D&A Móveis",
-      imagePosition: 'right' 
+      imagePosition: 'right'
     },
     {
       title: "Banheiros e Lavabos",
       description: "Transformamos banheiros e lavabos em espaços de relaxamento e requinte. Criamos gabinetes, espelheiras e nichos que otimizam o espaço e agregam valor estético, utilizando materiais resistentes à umidade.",
       items: ["Gabinetes suspensos ou com pés", "Espelheiras com iluminação", "Nichos embutidos", "Bancadas personalizadas"],
-      imageSrc: "/banheiros/banheiros-05.jpg", 
+      imageSrc: "/banheiros/banheiros-05.jpg",
       imageAlt: "Banheiro planejado D&A Móveis",
       imagePosition: 'left'
     },
@@ -89,25 +88,25 @@ export default function ServicosPage() {
       title: "Áreas Gourmet e Varandas",
       description: "Espaços de lazer que convidam à celebração. Projetamos móveis para áreas gourmet e varandas que combinam durabilidade e estilo, criando ambientes perfeitos para momentos de descontração.",
       items: ["Armários e bancadas para churrasqueiras", "Móveis para áreas externas cobertas", "Soluções resistentes e funcionais"],
-      imageSrc: "/area_lazer/area-lazer-01.jpg", 
+      imageSrc: "/area_lazer/area-lazer-01.jpg",
       imageAlt: "Área gourmet planejada D&A Móveis",
-      imagePosition: 'right' 
+      imagePosition: 'right'
     },
      {
       title: "Projetos Comerciais",
       description: "Atendemos também a projetos comerciais que demandam móveis planejados de alto padrão, como escritórios, lojas, clínicas e consultórios, sempre com foco na funcionalidade, durabilidade e na identidade visual da marca.",
       items: ["Mobiliário para escritórios", "Balcões e expositores para lojas", "Móveis para recepção e consultórios", "Soluções personalizadas para negócios"],
-      imageSrc: "/corporativo/corporativo-25.jpg", 
+      imageSrc: "/corporativo/corporativo-25.jpg",
       imageAlt: "Projeto comercial planejado D&A Móveis",
       imagePosition: 'left'
     }
   ];
 
   return (
-    <div className="container mx-auto px-4 py-12 space-y-12">
+    <div className="container mx-auto px-4 py-8 sm:py-12 space-y-12"> {/* Responsive padding */}
       <section className="text-center">
-        <h1 className="text-4xl font-bold mb-4 text-primary">Nossos Serviços: Materializando Seu Estilo em Cada Ambiente</h1>
-        <p className="text-lg text-muted-foreground max-w-prose mx-auto">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-primary">Nossos Serviços: Materializando Seu Estilo em Cada Ambiente</h1> {/* Responsive text */}
+        <p className="text-base sm:text-lg text-muted-foreground max-w-prose mx-auto"> {/* Responsive text */}
           Na D&A Móveis Planejados, especializamo-nos na criação de móveis planejados de alto padrão que combinam design sofisticado, funcionalidade inteligente e acabamentos impecáveis para clientes exigentes em Ribeirão Preto e região.
         </p>
       </section>
@@ -118,9 +117,9 @@ export default function ServicosPage() {
         ))}
       </section>
 
-      <section className="text-center bg-secondary text-secondary-foreground p-8 rounded-lg">
-         <h2 className="text-2xl font-semibold mb-4">Pronto para Transformar Seu Ambiente?</h2>
-         <p className="mb-6 max-w-prose mx-auto">Independentemente do ambiente, nosso compromisso é com a excelência em cada etapa. Utilizamos tecnologia de ponta para o projeto e a fabricação, sem abrir mão do cuidado artesanal que garante a perfeição nos detalhes.</p>
+      <section className="text-center bg-secondary text-secondary-foreground p-4 sm:p-8 rounded-lg"> {/* Responsive padding */}
+         <h2 className="text-xl sm:text-2xl font-semibold mb-4">Pronto para Transformar Seu Ambiente?</h2> {/* Responsive text */}
+         <p className="mb-6 max-w-prose mx-auto text-sm sm:text-base">Independentemente do ambiente, nosso compromisso é com a excelência em cada etapa. Utilizamos tecnologia de ponta para o projeto e a fabricação, sem abrir mão do cuidado artesanal que garante a perfeição nos detalhes.</p> {/* Responsive text */}
          <Button asChild size="lg" className="bg-destructive hover:bg-destructive/90 text-destructive-foreground">
             <Link href="/contato">Entre em Contato e Solicite um Orçamento</Link>
           </Button>
