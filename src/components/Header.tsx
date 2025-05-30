@@ -1,15 +1,29 @@
 import Link from 'next/link';
-import { Instagram } from 'lucide-react'; // Assuming lucide-react is installed by the template
+import Image from 'next/image'; // Import the Image component
+import { Instagram } from 'lucide-react';
 
 const Header = () => {
   return (
     <header className="bg-background text-foreground sticky top-0 z-50 w-full border-b border-border/40 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
+      <div className="container flex h-16 items-center justify-between"> {/* Increased height slightly for logo */}
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          {/* Placeholder for Logo - User needs to provide the high-res logo */}
-          <span className="font-bold sm:inline-block text-lg text-primary">D&A Móveis Planejados</span>
+          {/* Replaced text with Image component */}
+          <Image 
+            src="/logo/logo_fonte_branca_sem_fundo.png" 
+            alt="D&A Móveis Planejados Logo" 
+            width={130} // Adjusted width for aspect ratio
+            height={40} // Set height
+            priority // Prioritize loading the logo
+            className="h-10 w-auto" // Control height via class, let width adjust
+          />
+          {/* Removed the original text span */}
         </Link>
-        <nav className="flex items-center gap-4 text-sm lg:gap-6">
+        {/* Mobile Menu Trigger (Hidden on larger screens) */}
+        {/* You might need to add a Sheet component trigger here for mobile */}
+        {/* <Sheet> ... </Sheet> */}
+
+        {/* Desktop Navigation (Hidden on smaller screens) */}
+        <nav className="hidden md:flex items-center gap-4 text-sm lg:gap-6">
           <Link href="/" className="transition-colors hover:text-foreground/80 text-foreground/60">Home</Link>
           <Link href="/sobre" className="transition-colors hover:text-foreground/80 text-foreground/60">Sobre Nós</Link>
           <Link href="/servicos" className="transition-colors hover:text-foreground/80 text-foreground/60">Serviços</Link>
@@ -20,11 +34,15 @@ const Header = () => {
             <span className="sr-only">Instagram</span>
           </a>
         </nav>
-        {/* Add mobile menu button here if needed */}
+
+        {/* Placeholder for Mobile Menu Button/Drawer - Needs implementation */}
+        <div className="md:hidden"> 
+          {/* Add your mobile menu button/icon here */}
+          {/* Example: <Button variant="ghost" size="icon"> <Menu /> </Button> */}
+        </div>
       </div>
     </header>
   );
 };
 
 export default Header;
-
